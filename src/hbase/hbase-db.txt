@@ -1,0 +1,29 @@
+#list all tables
+list
+
+#empty table 'account'
+truncate 'account'
+
+#drop table 'account'
+disable 'account'
+drop 'account'
+
+#create table 'account' with two column families 'contact' and 'infection'
+create 'account', 'contact', 'infection'
+
+#insert 3 accounts (id1-alice, id2-bob and id3-alex) in table 'account'
+put 'account', 'id1-alice', 'contact:numberOfDirectInfectedContact', 0
+put 'account', 'id1-alice', 'contact:numberOfIndirectInfectedContact', 0
+put 'account', 'id1-alice', 'infection:isInfected', false
+put 'account', 'id1-alice', 'infection:infectedOn', 0
+put 'account', 'id1-alice', 'infection:infectionDeclaredBy', 'null'
+put 'account', 'id2-bob', 'contact:numberOfDirectInfectedContact', 0
+put 'account', 'id2-bob', 'contact:numberOfIndirectInfectedContact', 0
+put 'account', 'id2-bob', 'infection:isInfected', false
+put 'account', 'id2-bob', 'userinfection:infectedOn', 0
+put 'account', 'id2-bob', 'infection:infectionDeclaredBy', 'null'
+put 'account', 'id3-alex', 'contact:numberOfDirectInfectedContact', 0
+put 'account', 'id3-alex', 'contact:numberOfIndirectInfectedContact', 0
+put 'account', 'id3-alex', 'infection:isInfected', false
+put 'account', 'id3-alex', 'infection:infectedOn', 0
+put 'account', 'id3-alex', 'infection:infectionDeclaredBy', 'null'
