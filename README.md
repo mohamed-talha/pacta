@@ -9,4 +9,3 @@ The API offers the following web services:
 /account/createAccount(POST):	Create a new account
 /contact/newContact(POST):	Report a new contact between users
 /infection/reportInfection(POST):	Report a new infection for a user
-
