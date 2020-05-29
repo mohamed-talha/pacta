@@ -1,12 +1,7 @@
+#Once HBase is installed and started, you can execute the following commands to understand how it works. For the App, the tables scheamas are the same for this quick tuto.
+
 #list all tables
 list
-
-#empty table 'account'
-truncate 'account'
-
-#drop table 'account'
-disable 'account'
-drop 'account'
 
 #create table 'account' with two column families 'contact' and 'infection'
 create 'account', 'contact', 'infection'
@@ -27,3 +22,32 @@ put 'account', 'id3-alex', 'contact:numberOfIndirectInfectedContact', 0
 put 'account', 'id3-alex', 'infection:isInfected', false
 put 'account', 'id3-alex', 'infection:infectedOn', 0
 put 'account', 'id3-alex', 'infection:infectionDeclaredBy', 'null'
+
+#scan table 'account'
+scan 'account'
+
+#create table 'contact' with one column family 'sender'
+create 'contact', 'sender'
+
+#insert 3 values in table 'account'
+put 'contact', '1588291200§id1-alice§id3-alex§', 'sender:ids', 'id3-alex'
+put 'contact', '1589250000§id2-bob§id3-alex§', 'sender:ids', 'id2-bob'
+put 'contact', '1588281400§id1-alice§id3-alex§', 'sender:ids', 'id3-alex'
+
+#scan table 'contact'
+scan 'contact'
+
+#empty table 'account'
+truncate 'account'
+
+#drop table 'account'
+disable 'account'
+drop 'account'
+
+#empty table 'contact'
+truncate 'contact'
+
+#drop table 'contact'
+disable 'contact'
+drop 'contact'
+
